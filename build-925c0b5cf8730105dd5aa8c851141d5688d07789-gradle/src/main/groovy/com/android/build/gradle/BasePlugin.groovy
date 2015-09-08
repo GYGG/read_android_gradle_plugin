@@ -129,6 +129,7 @@ public abstract class BasePlugin {
 
         checkGradleVersion()
 
+        // 调用 java 插件
         project.apply plugin: JavaBasePlugin
 
         project.tasks.assemble.description =
@@ -142,6 +143,9 @@ public abstract class BasePlugin {
         deviceCheck.description = "Runs all checks that requires a connected device."
         deviceCheck.group = JavaBasePlugin.VERIFICATION_GROUP
 
+        //Adds an action to execute immediately after this project is evaluated.
+        //@see https://docs.gradle.org/current/userguide/build_lifecycle.html
+        //find more about evaluate
         project.afterEvaluate {
             createAndroidTasks()
         }
