@@ -170,6 +170,7 @@ public abstract class BasePlugin {
     }
 
     final void createAndroidTasks() {
+        //初始化 androidSdkParser
         findSdk(project)
 
         if (hasCreatedTasks) {

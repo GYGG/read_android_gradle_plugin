@@ -76,12 +76,17 @@ class AppPlugin extends com.android.build.gradle.BasePlugin implements org.gradl
             pluginHolder.plugin = this;
         }
 
+        //创建容器：buildtype
         def buildTypeContainer = project.container(BuildType, new BuildTypeFactory(instantiator))
+        //创建容器：productFlavor
         def productFlavorContainer = project.container(GroupableProductFlavor,
                 new GroupableProductFlavorFactory(instantiator))
+        //创建容器：signingConfigContainer
         def signingConfigContainer = project.container(SigningConfig,
                 new SigningConfigFactory(instantiator))
 
+        //创建容器：android
+        //都是从build.gradle读入的数据。
         extension = project.extensions.create('android', AppExtension,
                 this, (ProjectInternal) project, instantiator,
                 buildTypeContainer, productFlavorContainer, signingConfigContainer)
