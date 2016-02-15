@@ -32,7 +32,7 @@ mergeProGuardFileTask.conventionMapping.outputFile = {
 }
 ```
 
-这端就是进行多个 ProguardFile 合并的代码。
+这段就是进行多个 ProguardFile 合并的代码。
 
 再找到其中用到的 MergeFileTask类，对应路径在：「/gradle/internal/tasks/MergeFileTask.groovy」
 
